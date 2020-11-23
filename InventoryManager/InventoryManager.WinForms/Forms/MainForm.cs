@@ -12,8 +12,8 @@ namespace InventoryManager.WinForms.Forms
     public partial class MainForm : Form
     {
         public static string AssemblyTitle = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyTitleAttribute>().Title;
-        private WorldViewModel ViewModel 
-        { 
+        private WorldViewModel ViewModel
+        {
             get => mViewModel;
             set
             {
@@ -25,8 +25,8 @@ namespace InventoryManager.WinForms.Forms
             }
         }
 
-        private bool IsWorldLoaded 
-        { 
+        private bool IsWorldLoaded
+        {
             get => mIsWorldLoaded;
             set
             {
@@ -71,12 +71,12 @@ namespace InventoryManager.WinForms.Forms
         #region Main Menu
         private void OpenWorldToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    ViewModel.World = JsonConvert.DeserializeObject<World>(File.ReadAllText(openFileDialog.FileName));
-                    ViewModel.Filename = openFileDialog.FileName;
-                    IsWorldLoaded = true;
-                }
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ViewModel.World = JsonConvert.DeserializeObject<World>(File.ReadAllText(openFileDialog.FileName));
+                ViewModel.Filename = openFileDialog.FileName;
+                IsWorldLoaded = true;
+            }
         }
 
         private void ExitToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -95,6 +95,33 @@ namespace InventoryManager.WinForms.Forms
             }
         }
         #endregion Main Menu
+
+
+        /*private void AddItemButton_Click(object sender, EventArgs e)
+        {
+            using (AddItemForm addItemForm = new AddItemForm())
+            {
+                if (addItemForm.ShowDialog() == DialogResult.OK)
+                {
+                    Item item = new Item { Name = addItemForm.ItemName };
+                    ViewModel.Items.Add(item);
+                }
+            }
+        }
+
+        private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e) => deleteItemButton.Enabled = itemsListBox.SelectedItem != null;
+
+        private void DeleteItemButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Delete this item?", AssemblyTitle, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ViewModel.RemoveItem((Item)itemsListBox.SelectedItem);
+                itemsListBox.SelectedItem = ViewModel.Items.FirstOrDefault();
+            }
+        }*/
+
+
+
 
         private WorldViewModel mViewModel;
         private bool mIsWorldLoaded;

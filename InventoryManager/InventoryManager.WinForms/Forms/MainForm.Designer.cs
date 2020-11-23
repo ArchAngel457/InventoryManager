@@ -36,6 +36,11 @@ namespace InventoryManager.WinForms.Forms
             this.playersTabPage = new System.Windows.Forms.TabPage();
             this.playerScoreTextBox = new System.Windows.Forms.TextBox();
             this.playersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.playerInventoryListBox = new System.Windows.Forms.ListBox();
+            this.inventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.playerScoreLabel = new System.Windows.Forms.Label();
             this.playerHealthTextBox = new System.Windows.Forms.TextBox();
             this.playerHealthLabel = new System.Windows.Forms.Label();
@@ -63,6 +68,8 @@ namespace InventoryManager.WinForms.Forms
             this.mainTabControl.SuspendLayout();
             this.playersTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).BeginInit();
             this.itemsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
             this.mainMenuStrip.SuspendLayout();
@@ -90,6 +97,7 @@ namespace InventoryManager.WinForms.Forms
             // playersTabPage
             // 
             this.playersTabPage.Controls.Add(this.playerScoreTextBox);
+            this.playersTabPage.Controls.Add(this.groupBox1);
             this.playersTabPage.Controls.Add(this.playerScoreLabel);
             this.playersTabPage.Controls.Add(this.playerHealthTextBox);
             this.playersTabPage.Controls.Add(this.playerHealthLabel);
@@ -117,6 +125,52 @@ namespace InventoryManager.WinForms.Forms
             // 
             this.playersBindingSource.DataMember = "Players";
             this.playersBindingSource.DataSource = this.worldViewModelBindingSource;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.playerInventoryListBox);
+            this.groupBox1.Location = new System.Drawing.Point(164, 144);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(217, 279);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "In&ventory";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(111, 250);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "&Remove";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(30, 250);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Add &Item";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // playerInventoryListBox
+            // 
+            this.playerInventoryListBox.DataSource = this.inventoryBindingSource;
+            this.playerInventoryListBox.DisplayMember = "Name";
+            this.playerInventoryListBox.FormattingEnabled = true;
+            this.playerInventoryListBox.Location = new System.Drawing.Point(6, 19);
+            this.playerInventoryListBox.Name = "playerInventoryListBox";
+            this.playerInventoryListBox.Size = new System.Drawing.Size(205, 225);
+            this.playerInventoryListBox.TabIndex = 0;
+            this.playerInventoryListBox.ValueMember = "Name";
+            // 
+            // inventoryBindingSource
+            // 
+            this.inventoryBindingSource.DataMember = "Inventory";
+            this.inventoryBindingSource.DataSource = this.playersBindingSource;
             // 
             // playerScoreLabel
             // 
@@ -334,6 +388,8 @@ namespace InventoryManager.WinForms.Forms
             this.playersTabPage.ResumeLayout(false);
             this.playersTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).EndInit();
             this.itemsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
             this.mainMenuStrip.ResumeLayout(false);
@@ -374,6 +430,11 @@ namespace InventoryManager.WinForms.Forms
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox playerInventoryListBox;
+        private System.Windows.Forms.BindingSource inventoryBindingSource;
     }
 }
 

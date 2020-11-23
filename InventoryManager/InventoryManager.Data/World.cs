@@ -20,5 +20,11 @@ namespace InventoryManager.Data
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
+        {
+            foreach (Player player in Players)
+            {
+                player.BuildInventoryFromName(Items);
+            }
+        }
     }
 }

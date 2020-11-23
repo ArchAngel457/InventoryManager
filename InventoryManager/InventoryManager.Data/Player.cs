@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace InventoryManager.Data
 {
@@ -21,7 +22,16 @@ namespace InventoryManager.Data
 
         public Player()
         {
+            InventoryNames = new List<string>();
             Inventory = new List<Item>();
+        }
+
+        public void BuildInventoryFromName(List<Item> items)
+        {
+            Inventory = (from itemName in InventoryNames
+                         let item = items.Find(i => i.Name.Equals(itemName, System.StringComparison.InvariantCultureIgnoreCase))
+                         where item != null
+                         select item).ToList();
         }
 
         public override string ToString() => Name;
