@@ -1,0 +1,39 @@
+{
+  "Players": [
+    {
+      "Name": "Jane Doe",
+      "Health": "100",
+      "Score": "150",
+      "Inventory": [
+        "Book",
+        "Lantern"
+      ]
+    },
+    {
+      "Name": "John Smith",
+      "Health": "80",
+      "Score": "25",
+      "Inventory": [
+        "Book"
+      ]
+    },
+    {
+      "Name": "Ima Knight",
+      "Health": "90",
+      "Score": "125",
+      "Inventory": [
+        "Lantern"
+      ]
+    }
+  ],
+  "Items": [
+    {
+      "Name": "Book",
+      "Weight": 10
+    },
+    {
+      "Name": "Lantern",
+      "Weight": 20
+    }
+  ]
+}
